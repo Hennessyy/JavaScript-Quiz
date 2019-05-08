@@ -1,0 +1,971 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Auditor - Disability Audit</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Free HTML5 Website Template by FreeHTML5.co" />
+	<meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
+	<meta name="author" content="FreeHTML5.co" />
+
+
+  <!-- 
+	//////////////////////////////////////////////////////
+
+	FREE HTML5 TEMPLATE 
+	DESIGNED & DEVELOPED by FREEHTML5.CO
+		
+	Website: 		http://freehtml5.co/
+	Email: 			info@freehtml5.co
+	Twitter: 		http://twitter.com/fh5co
+	Facebook: 		https://www.facebook.com/fh5co
+
+	//////////////////////////////////////////////////////
+	 -->
+
+
+  	<!-- Facebook and Twitter integration -->
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
+	
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="css/animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="css/icomoon.css">
+	<!-- Themify Icons-->
+	<link rel="stylesheet" href="css/themify-icons.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="css/bootstrap.css">
+
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="css/magnific-popup.css">
+
+	<!-- Owl Carousel  -->
+	<link rel="stylesheet" href="css/owl.carousel.min.css">
+	<link rel="stylesheet" href="css/owl.theme.default.min.css">
+
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="css/style.css">
+
+	<!-- Modernizr JS -->
+	<script src="js/modernizr-2.6.2.min.js"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+
+    <style>
+    
+    table,th,td{
+    border:1px solid white;
+    }
+    
+    #button{
+    background:white;
+    color:black;
+    margin-left:500px;
+    padding-left:10px;
+    padding-right:10px;
+    font-size:20px;
+    }
+    </style>
+    
+    
+    <script>
+    
+    var totals = [];
+    
+    
+function startTimer(duration, display) {
+    var start = Date.now(),
+        diff,
+        minutes,
+        seconds;
+    function timer() {
+        
+        diff = duration - (((Date.now() - start) / 1000) | 0);
+
+        minutes = (diff / 60) | 0;
+        seconds = (diff % 60) | 0;
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = minutes + ":" + seconds; 
+
+        if (diff <= 0) {
+            
+            start = Date.now() + 1000;
+        }
+    };
+    
+    timer();
+    setInterval(timer, 1000);
+}
+
+window.onload = function () {
+    var fiveMinutes = 60 * 10,
+        display = document.querySelector('#time');
+    startTimer(fiveMinutes, display);
+};
+
+var timer = setTimeout(function () {
+			window.location.href = "timedOut.html";
+		}, 600000);
+
+
+
+function calcFinalTotal(){
+
+if(localStorage.getItem('totals'))
+{
+  localStorage.getItem('totals', []);
+}
+
+totals = [];
+
+  calcSecOne();
+  
+  calcSecTwo();
+
+  calcSecThree();
+  
+  calcSecFour();
+  
+  calcSecFive();
+  
+  calcSecSix();
+  
+  calcSecSeven();
+  
+  calcSecEight();
+  
+  calcSecNine();
+  
+  calcSecTen();
+  
+  calcSecEleven();
+  
+  localStorage.setItem('totals', JSON.stringify(totals));
+			window.location.href = "finishedQuiz.html";
+  
+};
+
+function calcSecOne(){
+
+var total = 0;
+			for(var i=1; i <= 4; i++) {
+				for(var x = 0; x < 5; x++) {					
+					if(document.getElementsByName('1.' + i)[x].checked){
+						total += x + 1;
+					}
+				}
+        
+        
+			}
+    
+      totals.push([1,total]);
+};
+
+
+function calcSecTwo(){
+
+var total = 0;
+			for(var i=1; i <= 5; i++) {
+				for(var x = 0; x < 5; x++) {					
+					if(document.getElementsByName('2.' + i)[x].checked){
+						total += x + 1;
+					}
+				}
+			}
+     
+      totals.push([2,total]);
+
+};
+
+function calcSecThree() {
+
+  var total = 0;
+  for (var i = 1; i <= 2; i++) {
+    for (var x = 0; x < 5; x++) {
+      if (document.getElementsByName('3.' + i)[x]) {
+        if (document.getElementsByName('3.' + i)[x].checked) {
+          total += x + 1;
+        }
+      }
+    }
+  }
+ 
+  totals.push([3,total]);
+};
+
+
+
+function calcSecFour(){
+
+var total = 0;
+			
+			if(document.getElementsByName('4.1')[0].checked){
+					total += 10;
+          
+			 for(var i=0; i < 3; i++) {				
+        if (document.getElementsByName('4.2')[i].checked) {
+          total += 10;
+        
+			}
+      
+      }
+			
+
+
+}
+
+totals.push([4,total]);
+};
+
+function calcSecFive(){
+
+var total = 0;
+
+
+			for(var i=1; i <= 5; i++) {
+				if(document.getElementsByName('5.' + i)[1].checked){
+					total += 10;             
+              }			
+  
+          }       
+          
+     
+          totals.push([5,total]);  
+};
+
+function calcSecSix(){
+
+var total = 0;
+
+
+			for(var i=1; i <= 5; i++) {
+				if(document.getElementsByName('6.' + i)[0].checked){
+					total += 10;             
+              }
+              else if(document.getElementsByName('6.' + i)[2]){
+              if(document.getElementsByName('6.' + i)[2].checked){
+              total += 10;
+              }
+              }
+              
+              			
+  
+          }       
+          
+         
+          totals.push([6,total]); 
+
+
+};
+
+function calcSecSeven(){
+
+var total = 0;
+
+
+			for(var i=1; i <= 2; i++) {
+				if(document.getElementsByName('7.' + i)[0].checked){
+					total += 10;             
+              }			
+  
+          }       
+          
+     
+          totals.push([7,total]);  
+
+};
+
+function calcSecEight(){
+
+var total = 0;
+			if(document.getElementsByName('8.1')[0].checked) {
+				for(var i=0; i < 4; i++) {
+					if(document.getElementsByName('8.2')[i].checked)
+						total += 10;					
+				}	
+			}
+			if(document.getElementsByName('8.3')[0].checked) {
+				for(var i=0; i < 4; i++) {
+					if(document.getElementsByName('8.4')[i].checked)
+						total += 10;					
+				}	
+			}
+
+totals.push([8,total]);
+};
+
+
+function calcSecNine(){
+
+var total = 0;
+			for(var i=1; i <= 6; i++) {					
+				if(document.getElementsByName('9.' + i)[0].checked){
+					total += 10;
+				}
+			}
+
+totals.push([9,total]);
+};
+
+
+function calcSecTen(){
+
+var total = 0;
+			if(document.getElementsByName('10.1')[0].checked) {
+      total +=10					
+			}
+      
+      for(var i=0; i < 4; i++) {
+					if(document.getElementsByName('10.2')[i].checked)
+						total += 10;					
+				}
+      
+
+totals.push([10,total]);
+};
+
+
+function calcSecEleven(){
+
+var total = 0;
+
+
+			for(var i=1; i <= 2; i++) {
+				if(document.getElementsByName('11.' + i)[0].checked){
+					total += 10;             
+              }			
+  
+          }       
+          
+         
+          totals.push([11,total]); 
+
+
+
+}
+
+
+
+    
+    
+    
+    
+    
+    
+    function changeThis(sender){
+    
+    if(document.getElementById('rOne').checked){
+      document.getElementById("check1").removeAttribute('disabled');
+      document.getElementById("check2").removeAttribute('disabled');
+      document.getElementById("check3").removeAttribute('disabled'); 
+    }else{
+     document.getElementById("check1").disabled = true;
+     document.getElementById("check2").disabled = true;
+     document.getElementById("check3").disabled = true;
+     
+     document.getElementById("check1").checked = false;
+     document.getElementById("check2").checked = false;
+     document.getElementById("check3").checked = false;
+    }   
+    };
+    
+    function changeThisAlso(sender){
+    
+    if(document.getElementById('rThree').checked){
+      document.getElementById("checkP").removeAttribute('disabled');
+      document.getElementById("checkI").removeAttribute('disabled');
+      document.getElementById("checkS").removeAttribute('disabled');
+      document.getElementById("checkM").removeAttribute('disabled'); 
+    }else{
+     document.getElementById("checkP").disabled = true;
+     document.getElementById("checkI").disabled = true;
+     document.getElementById("checkS").disabled = true;
+     document.getElementById("checkM").disabled = true;
+     
+     document.getElementById("checkP").checked = false;
+     document.getElementById("checkI").checked = false;
+     document.getElementById("checkS").checked = false;
+     document.getElementById("checkM").checked = false;
+    } 
+ 
+    }; 
+    
+        function changeThisAlsoAgain(sender){
+    
+    if(document.getElementById('rFive').checked){
+      document.getElementById("checkP1").removeAttribute('disabled');
+      document.getElementById("checkI1").removeAttribute('disabled');
+      document.getElementById("checkS1").removeAttribute('disabled');
+      document.getElementById("checkM1").removeAttribute('disabled'); 
+    }else{
+     document.getElementById("checkP1").disabled = true;
+     document.getElementById("checkI1").disabled = true;
+     document.getElementById("checkS1").disabled = true;
+     document.getElementById("checkM1").disabled = true;
+     
+     document.getElementById("checkP1").checked = false;
+     document.getElementById("checkI1").checked = false;
+     document.getElementById("checkS1").checked = false;
+     document.getElementById("checkM1").checked = false;
+    } 
+    };
+    
+
+    </script>
+
+
+	</head>
+	<body>
+		
+	<div class="gtco-loader"></div>
+	
+	<div id="page">
+	
+	<div class="page-inner">
+	<nav class="gtco-nav" role="navigation">
+		<div class="gtco-container">
+			
+			<div class="row">
+				<div class="col-sm-4 col-xs-12">
+				<br><br><br>	
+				</div>
+				
+			</div>
+			
+		</div>
+	</nav>	
+	
+  
+		<div class="overlay"></div>
+		<div class="gtco-container">
+			<div class="row">
+				<div class="col-md-12 col-md-offset-0 text-left">		
+        			
+				    <div class="col-md-71 mt-text animate-box" data-animate-effect="fadeInUp">
+             <form id="questions">
+					   <div class="colorMe">	
+					   	<p>Please consider the following questions and identify your level of agreement with the statement    
+                        <br>5. Strongly agree
+                        <br>4. Agree
+                        <br>3. Neutral/ Don’t know
+                        <br>2. Disagree
+                        <br>1. Strongly disagree</p>
+	
+                        <h2>&nbsp;&nbsp;Section 1: Verification</h2>    
+                            
+                         
+                        <table>
+                        <th><td>&nbsp;&nbsp;1<td>
+                        &nbsp;&nbsp;2
+                        <td>&nbsp;&nbsp;3</td>
+                        <td>&nbsp;&nbsp;4</td>
+                        <td>&nbsp;&nbsp;5</td>
+                        </th>
+                        <tr>
+                           <td>&nbsp;&nbsp;I and/or my colleagues know where to get information to help us analyse the business case for consciously attracting people with disabilities as members</td>
+                           <td><input type="radio" name="1.1" value="1" required></td>
+                           <td><input type="radio" name="1.1" value="2"></td>
+                           <td><input type="radio" name="1.1" value="3"></td>
+                           <td><input type="radio" name="1.1" value="4"></td>
+                           <td><input type="radio" name="1.1" value="5"></td>
+                        </tr>
+                        <tr>
+                        <td>&nbsp;&nbsp;I/my colleagues have researched the scope for increasing the participation of the broader community, in particular people with disabilities</td>
+                        <td><input type="radio" name="1.2" value="1" required></td>
+                           <td><input type="radio" name="1.2" value="2"></td>
+                           <td><input type="radio" name="1.2" value="3"></td>
+                           <td><input type="radio" name="1.2" value="4"></td>
+                           <td><input type="radio" name="1.2" value="5"></td>
+                        </tr>
+                        <tr>
+                        <td>&nbsp;&nbsp;I know of disability service providers that I could link with in the local community</td>
+                        <td><input type="radio" name="1.3" value="1" required></td>
+                           <td><input type="radio" name="1.3" value="2"></td>
+                           <td><input type="radio" name="1.3" value="3"></td>
+                           <td><input type="radio" name="1.3" value="4"></td>
+                           <td><input type="radio" name="1.3" value="5"></td>
+                        </tr>
+                        <tr>
+                        <td>&nbsp;&nbsp;My colleagues and I inclusivize our services to provide for people with disabilities </td>
+                        <td><input type="radio" name="1.4" value="1" required></td>
+                           <td><input type="radio" name="1.4" value="2"></td>
+                           <td><input type="radio" name="1.4" value="3"></td>
+                           <td><input type="radio" name="1.4" value="4"></td>
+                           <td><input type="radio" name="1.4" value="5"></td>
+                        </tr>
+                        
+                        
+                        </table>
+                        
+                         <br>
+                        <h2>Section 2: Value Proposition</h2>    
+                             
+                        <table>
+                        <th><td>&nbsp;&nbsp;1<td>
+                        &nbsp;&nbsp;2
+                        <td>&nbsp;&nbsp;3</td>
+                        <td>&nbsp;&nbsp;4</td>
+                        <td>&nbsp;&nbsp;5</td>
+                        </th>
+                        <tr>
+                           <td>&nbsp;&nbsp;My colleagues and I have a significant contribution to make to the quality of life of people in our community, including people with disabilities</td>
+                           <td><input type="radio" name="2.1" value="1" required></td>
+                           <td><input type="radio" name="2.1" value="2" required></td>
+                           <td><input type="radio" name="2.1" value="3" required></td>
+                           <td><input type="radio" name="2.1" value="4" required></td>
+                           <td><input type="radio" name="2.1" value="5" required></td>
+                        </tr>
+                        <tr>
+                        <td>&nbsp;&nbsp;My colleagues and I have the scope to improve opportunities for participation in fitness activities for people living in, or visiting our community, including people with disabilities</td>
+                        <td><input type="radio" name="2.2" value="1" required></td>
+                           <td><input type="radio" name="2.2" value="2"></td>
+                           <td><input type="radio" name="2.2" value="3"></td>
+                           <td><input type="radio" name="2.2" value="4"></td>
+                           <td><input type="radio" name="2.2" value="5"></td>
+                        </tr>
+                        <tr>
+                        <td>&nbsp;&nbsp;The benefits of increasing our UniversAbility  to increase participation are clear</td>
+                        <td><input type="radio" name="2.3" value="1"  required></td>
+                           <td><input type="radio" name="2.3" value="2"></td>
+                           <td><input type="radio" name="2.3" value="3"></td>
+                           <td><input type="radio" name="2.3" value="4"></td>
+                           <td><input type="radio" name="2.3" value="5"></td>
+                        </tr>
+                        <tr>
+                        <td>&nbsp;&nbsp;My colleagues and I play a major role in providing health services to the entire community, including people with disabilities</td>
+                        <td><input type="radio" name="2.4" value="1"  required></td>
+                           <td><input type="radio" name="2.4" value="2"></td>
+                           <td><input type="radio" name="2.4" value="3"></td>
+                           <td><input type="radio" name="2.4" value="4"></td>
+                           <td><input type="radio" name="2.4" value="5"></td>
+                        </tr>
+                        <tr>
+                        <td>&nbsp;&nbsp;The UniversAbility  of our fitness services increases the job satisfaction and turnover of my staff</td>
+                        <td><input type="radio" name="2.5" value="1"  required></td>
+                           <td><input type="radio" name="2.5" value="2"></td>
+                           <td><input type="radio" name="2.5" value="3"></td>
+                           <td><input type="radio" name="2.5" value="4"></td>
+                           <td><input type="radio" name="2.5" value="5"></td>
+                        </tr>                                              
+                        </table>
+                        
+                        
+                        
+                        <br>
+                        <h2>Section 3: Vision</h2>    
+                             
+                        <table>
+                        <th><td>&nbsp;&nbsp;1<td>
+                        &nbsp;&nbsp;2
+                        <td>&nbsp;&nbsp;3</td>
+                        <td>&nbsp;&nbsp;4</td>
+                        <td>&nbsp;&nbsp;5</td>
+                        </th>
+                        <tr>
+                           <td>&nbsp;&nbsp;I and/or my colleagues have identified set targets for increasing the UniversAbility  of our services and are putting strategies in place to achieve these goals</td>
+                           <td><input type="radio" name="3.1" value="1"  required></td>
+                           <td><input type="radio" name="3.1" value="2"></td>
+                           <td><input type="radio" name="3.1" value="3"></td>
+                           <td><input type="radio" name="3.1" value="4"></td>
+                           <td><input type="radio" name="3.1" value="5"></td>
+                        </tr>
+                        </table>
+                        <br>
+                        <table>
+                        <tr>
+                        <td>
+                         Which of the following statements best describes your situation within your organisation (Please select one)
+                        </td>
+                        </tr>
+                      
+                        <tr>
+                        <td>&nbsp;&nbsp;I don’t think inclusivizing our services, in particular for people with disabilities, is really an option for us but won’t rule it out completely until it has been fully explored </td>
+                        <td><input type="radio" name="3.2" value="1"  required></td>                          
+                        </tr>
+                        <tr>
+                        <td>&nbsp;&nbsp;I have never considered inclusivizing our services until now </td>
+                        <td><input type="radio" name="3.2" value="2"></td>
+                           
+                        </tr>
+                        <tr>
+                        <td>&nbsp;&nbsp;I THINK there may be scope for inclusivizing our services but am not sure </td>
+                        <td><input type="radio" name="3.2" value="3"></td>
+                           
+                        </tr>
+                        <tr>
+                        <td> &nbsp;&nbsp;I and/or my colleagues have identified scope for increasing the UniversAbility  of our services 
+                         </td>
+                        <td><input type="radio" name="3.2" value="4"></td>
+                           
+                        </tr>
+                        <tr>
+                        <td>&nbsp;&nbsp;I and/or my colleagues have identified set targets for increasing the UniversAbility  of our services and are putting strategies in place to achieve these goals 
+                        </td>
+                        <td><input type="radio" name="3.2" value="5"></td>
+                        </tr>                                              
+                        </table>
+                        
+                        
+                         <br>
+                        <h2>Section 4: Philosophy</h2>    
+                             
+                        <table>
+                        <th><td>&nbsp;&nbsp;Yes<td>
+                        &nbsp;&nbsp;No                    
+                        </th>
+                        <tr>
+                           <td>&nbsp;&nbsp;1.	Does your organisation have stated ideals in your strategic plan or other management documents which relate UniversAbility  of your services?  </td>
+                           <td><input type="radio" name="4.1" value="1" id="rOne" onchange="changeThis(this)"  required></td>
+                           <td><input type="radio" name="4.1" value="2" id="rTwo" onchange="changeThis('rOne')"></td>                           
+                        </tr>
+                        </table>
+                      
+                        <table>   
+                        <tr>
+                        <td>&nbsp;&nbsp;2.	Do you think an inclusive philosophy is a lived experience by: </td>
+                        <td>&nbsp;&nbsp; Management    <input type="checkbox" name="4.2" value="1" id="check1" disabled /></td>
+                           <td>&nbsp;&nbsp;Staff     <input type="checkbox" name="4.2" value="2" id="check2" disabled></td>
+                           <td>&nbsp;&nbsp;Customers   <input type="checkbox" name="4.2" value="3" id="check3" disabled></td>
+                          
+                        </tr>
+                                            
+                        </table>
+                        
+                        <br>
+                        <h2>Section 5: Policy</h2>    
+                             
+                        <table>
+                        <th><td>&nbsp;&nbsp;Yes<td>
+                        &nbsp;&nbsp;No
+                        <td> &nbsp;&nbsp;Not needed</td>                    
+                        </th>
+                        <tr>
+                           <td>&nbsp;&nbsp;1.	Does your charging policy account for the varied needs of your customers? E.g. No charge for personal assistants</td>
+                           <td><input type="radio" name="5.1" value="1"  required></td>
+                           <td><input type="radio" name="5.1" value="2"></td>                           
+                        </tr>                         
+                        <tr>
+                        <td>&nbsp;&nbsp;2.  Do you track and monitor the proportion of your club members who experience disabilities? </td>
+                            <td><input type="radio" name="5.2" value="1"  required></td>
+                           <td><input type="radio" name="5.2" value="2"></td>                          
+                        </tr>
+                        <tr>
+                        <td>&nbsp;&nbsp;3. Have you a budget allocated to:
+                        <br>&nbsp;&nbsp;(a)	increasing the UniversAbility  of your services? (eg. facilities, equipment and staff training)</td>
+                            <td><input type="radio" name="5.3" value="10"  required></td>
+                           <td><input type="radio" name="5.3" value="0"></td>
+                           <td><input type="radio" name="5.3" value="10"></td>                           
+                        </tr>
+                        <tr>
+                        <td>&nbsp;&nbsp;(b)	increasing the UniversAbility  of your policies? </td>
+                            <td><input type="radio" name="5.4" value="1"  required></td>
+                           <td><input type="radio" name="5.4" value="2"  required></td>                          
+                        </tr>
+                        <tr>
+                        <td>&nbsp;&nbsp;4. Are you familiar with the national legislation that relates to disability service provision?  </td>
+                            <td><input type="radio" name="5.5" value="1"  required></td>
+                           <td><input type="radio" name="5.5" value="2"  required></td>                          
+                        </tr>
+                                            
+                        </table>
+                        
+                         <br>
+                        <h2>&nbsp;&nbsp;Section 6: Processes</h2>    
+                             
+                        <table>
+                        <th><td>&nbsp;&nbsp;Yes<td>
+                        &nbsp;&nbsp;No                                          
+                        </th>
+                        <tr>
+                           <td>&nbsp;&nbsp;1.	Do you engage with disability groups in your local community?</td>
+                           <td><input type="radio" name="6.1" value="1"  required></td>
+                           <td><input type="radio" name="6.1" value="2"  ></td>                           
+                        </tr>                         
+                        <tr>
+                        <td>&nbsp;&nbsp;2.	Have you forged any alliance/partnership with any disability organisation?</td>
+                            <td><input type="radio" name="6.2" value="1"  required></td>
+                           <td><input type="radio" name="6.2" value="2"  ></td>                          
+                        </tr>
+                        <tr>
+                        <td>&nbsp;&nbsp;3.	Have you or your staff embraced any assistive technologies (E.g. Assist-Mi app)?</td>
+                            <td><input type="radio" name="6.3" value="10"  required></td>
+                           <td><input type="radio" name="6.3" value="0"  ></td>                                                  
+                        </tr>
+                        <tr>
+                        <td>&nbsp;&nbsp;4.	Have you or your colleagues undertaken any research on Inclusivizing your service?</td>
+                            <td><input type="radio" name="6.4" value="1"  required></td>
+                           <td><input type="radio" name="6.4" value="2" ></td>                          
+                        </tr>
+                        <tr>
+                        <td>&nbsp;&nbsp;5.	Do you encourage your staff to engage in customer satisfaction conversations with different user groups?</td>
+                            <td><input type="radio" name="6.5" value="1"  required></td>
+                           <td><input type="radio" name="6.5" value="2"  ></td>                          
+                        </tr>
+                                            
+                        </table>
+                        
+                         <br>
+                        <h2>&nbsp;&nbsp;Section 7: Perception</h2>    
+                             
+                        <table>
+                        <th><td>&nbsp;&nbsp;Yes<td>
+                        &nbsp;&nbsp;No                                          
+                        </th>
+                        <tr>
+                           <td>&nbsp;&nbsp;1.	Do you gather information from your users on their beliefs about fitness being a fundamental right for all?</td>
+                           <td><input type="radio" name="7.1" value="1"  required></td>
+                           <td><input type="radio" name="7.1" value="2"></td>                           
+                        </tr>                         
+                        <tr>
+                        <td>&nbsp;&nbsp;2.	Do you gather information from people who do NOT use your facility on fitness being a fundamental right for all?</td>
+                            <td><input type="radio" name="7.2" value="1"  required></td>
+                           <td><input type="radio" name="7.2" value="2"></td>                          
+                        </tr>                                                                  
+                        </table>
+                        
+                        <br>
+                        <h2>&nbsp;&nbsp;Section 8: Programmes</h2>
+                        
+                        <p>&nbsp;&nbsp;This section refers to programmes that you deliver, or support delivery of, to consciously inclusivize your services</p>    
+                             
+                        <table>
+                        <th><td>&nbsp;&nbsp;Yes<td>
+                        &nbsp;&nbsp;No                                          
+                        </th>
+                        <tr>
+                           <td>&nbsp;&nbsp;1.	Do you and your staff provide programmes specifically for people with disabilities?</td>
+                           <td><input type="radio" name="8.1" value="1" id="rThree" onchange="changeThisAlso(this)"  required></td>
+                           <td><input type="radio" name="8.1" value="2" id="rFour" onchange="changeThisAlso('rThree')"></td>                           
+                        </tr>                                                                                                                  
+                        </table>                        
+                         <br>
+                        <p>&nbsp;&nbsp;If Yes please complete the table below</p>
+                        
+                        <table> 
+                        <th>&nbsp;&nbsp;Disability Category<td>Yes<td>                                                                
+                        </th>
+                        <tr>
+                           <td>&nbsp;&nbsp;Physical disabilities</td>
+                           <td><input type="checkbox" name="8.2" value="10" id="checkP" disabled></td>
+                        </tr>
+                        <tr>
+                           <td>&nbsp;&nbsp;Intellectual disabilities </td>
+                           <td><input type="checkbox" name="8.2" value="10" id="checkI" disabled></td>
+                        </tr>
+                        <tr>
+                           <td>&nbsp;&nbsp;Sensory disabilities </td>
+                           <td><input type="checkbox" name="8.2" value="10" id="checkS" disabled></td>
+                        </tr>
+                        <tr>
+                           <td>&nbsp;&nbsp;Mental health difficulties</td>
+                           <td><input type="checkbox" name="8.2" value="10" id="checkM" disabled></td>                                                   
+                        </tr>                                                                                                                  
+                        </table>
+                        
+                        <table>
+                        <th><td>&nbsp;&nbsp;Yes<td>
+                        &nbsp;&nbsp;No                                          
+                        </th>
+                        <tr>
+                           <td>&nbsp;&nbsp;2.	Do people with disabilities use the gym, pool, or participate in group activities etc. alongside other members? </td>
+                           <td><input type="radio" name="8.3" value="1" id="rFive" onchange="changeThisAlsoAgain(this)"  required></td>
+                           <td><input type="radio" name="8.3" value="2" id="rSix" onchange="changeThisAlsoAgain('rFive')"></td>                           
+                        </tr>                                                                                                                  
+                        </table>                        
+                         <br>
+                        <p>&nbsp;&nbsp;If Yes please complete the table below</p>
+                        
+                        <table> 
+                        <th>&nbsp;&nbsp;Disability Category<td>Yes<td>                                                                
+                        </th>
+                        <tr>
+                           <td>&nbsp;&nbsp;Physical disabilities</td>
+                           <td><input type="checkbox" name="8.4" value="10" id="checkP1" disabled></td>
+                        </tr>
+                        <tr>
+                           <td>&nbsp;&nbsp;Intellectual disabilities </td>
+                           <td><input type="checkbox" name="8.4" value="10" id="checkI1" disabled></td>
+                        </tr>
+                        <tr>
+                           <td>&nbsp;&nbsp;Sensory disabilities </td>
+                           <td><input type="checkbox" name="8.4" value="10" id="checkS1" disabled></td>
+                        </tr>
+                        <tr>
+                           <td>&nbsp;&nbsp;Mental health difficulties</td>
+                           <td><input type="checkbox" name="8.4" value="10" id="checkM1" disabled></td>                                                   
+                        </tr>                                                                                                                  
+                        </table>
+                        
+                        <br>
+                        <h2>Section 9: People</h2>    
+                             
+                        <table>
+                        <th>&nbsp;&nbsp;1.	Have you or any of your staff/volunteers had training that facilitates the inclusion of people with disabilities?<td>Yes<td>
+                        No                                          
+                        </th>                                               
+                        <tr>
+                          <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. Operational (teaching/instructional staff)</td>
+                          <td><input type="radio" name="9.1" value="10"  required></td>
+                          <td><input type="radio" name="9.1" value="0"></td>                       
+                        </tr>
+                        <tr>
+                          <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b.	Management </td>
+                          <td><input type="radio" name="9.2" value="10"  required></td>
+                          <td><input type="radio" name="9.2" value="0"></td>                       
+                        </tr>
+                        <tr>
+                          <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; c. Front of house </td>
+                          <td><input type="radio" name="9.3" value="10"  required></td>
+                          <td><input type="radio" name="9.3" value="0"></td>                       
+                        </tr>
+                        <tr>
+                          <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; d.	Stakeholders/ contracted staff </td>
+                          <td><input type="radio" name="9.4" value="10"  required></td>
+                          <td><input type="radio" name="9.4" value="0"></td>                       
+                        </tr>
+                        
+                        <tr>
+                          <td>&nbsp;&nbsp;2.	Are people with disabilities employed by your organisation and/or represented on your steering committee/ management committee/ board of management etc.?	</td>
+                          <td><input type="radio" name="9.5" value="10"  required></td>
+                          <td><input type="radio" name="9.5" value="0"></td>                       
+                        </tr>
+                        
+                        <tr>
+                          <td>&nbsp;&nbsp;3.	Is there a member of staff allocated as a liaison/point person for customers with disabilities? 	</td>
+                          <td><input type="radio" name="9.6" value="10"  required></td>
+                          <td><input type="radio" name="9.6" value="0"></td>                       
+                        </tr>                      
+                        </table>
+                        
+                        <br>
+                        <h2>Section 10: Phyical Access/Place</h2> 
+                        
+                         <table>
+                        <th><td>&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;<td>
+                        &nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;                                          
+                        </th>
+                        <tr>
+                           <td>&nbsp;&nbsp;1.	Have you or your colleagues carried out an audit to evaluate the UniversAbility  of your facility&nbsp;</td>
+                           <td>&nbsp;&nbsp;&nbsp;<input type="radio" name="10.1" value="1"  required></td>
+                           <td>&nbsp;&nbsp;&nbsp;<input type="radio" name="10.1" value="2"></td>                           
+                        </tr>                                                                                                                                                                
+                        </table>
+                         <br>
+                        <p>2. Does your facility( or the facility you use) consider the following disabilities when evaluating UniversAbility :</p>
+                        <table> 
+                        <th>&nbsp;&nbsp;Disability Category<td>Yes<td>                                                                
+                        </th>
+                        <tr>
+                           <td>&nbsp;&nbsp;Physical disabilities</td>
+                           <td>&nbsp;&nbsp;<input type="checkbox" name="10.2" value="10"></td>
+                        </tr>
+                        <tr>
+                           <td>&nbsp;&nbsp;Intellectual disabilities </td>
+                           <td>&nbsp;&nbsp;<input type="checkbox" name="10.2" value="10" ></td>
+                        </tr>
+                        <tr>
+                           <td>&nbsp;&nbsp;Sensory disabilities </td>
+                           <td>&nbsp;&nbsp;<input type="checkbox" name="10.2" value="10"></td>
+                        </tr>
+                        <tr>
+                           <td>&nbsp;&nbsp;Mental health difficulties</td>
+                           <td>&nbsp;&nbsp;<input type="checkbox" name="10.2" value="10"</td>                                                   
+                        </tr> 
+                        </table>
+                          <br>
+                         <h2>&nbsp;&nbsp;Section 11: Promotion</h2>    
+                             
+                        <table>
+                        <th><td>&nbsp;&nbsp;Yes&nbsp;<td>
+                        &nbsp;&nbsp;No&nbsp;                                          
+                        </th>
+                        <tr>
+                           <td>&nbsp;&nbsp;1.	Is your promotional material inclusive of people with disabilities?	?</td>
+                           <td>&nbsp;&nbsp;&nbsp;<input type="radio" name="11.1" value="10" required></td>
+                           <td>&nbsp;&nbsp;&nbsp;<input type="radio" name="11.1" value="0"></td>                           
+                        </tr>                         
+                        <tr>
+                        <td>&nbsp;&nbsp;2.	Do you gather information from people who do NOT use your facility on fitness being a fundamental right for all?</td>
+                            <td>&nbsp;&nbsp;&nbsp;<input type="radio" name="11.2" value="10" required></td>
+                           <td>&nbsp;&nbsp;&nbsp;<input type="radio" name="11.2" value="0"></td>                          
+                        </tr>                                                                  
+                        </table>
+                        <br>                        
+                         
+                         
+                        <button id="button" onsubmit="calcFinalTotal()">Finished</button>
+                         
+                         <br>
+                         <br>
+                         <br>
+                         <div><span id="time">10:00</span> minutes!</div>
+                          </form>
+                                                                                                                           
+                                                  </div>
+                                                    	           
+                                            </div>
+			                             </div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+	
+
+
+
+	</div>
+
+	</div>
+
+	<div class="gototop js-top">
+		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
+	</div>
+	
+	<!-- jQuery -->
+	<script src="js/jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="js/jquery.easing.1.3.js"></script>
+	<!-- Bootstrap -->
+	<script src="js/bootstrap.min.js"></script>
+	<!-- Waypoints -->
+	<script src="js/jquery.waypoints.min.js"></script>
+	<!-- Carousel -->
+	<script src="js/owl.carousel.min.js"></script>
+	<!-- countTo -->
+	<script src="js/jquery.countTo.js"></script>
+	<!-- Magnific Popup -->
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/magnific-popup-options.js"></script>
+	<!-- Main -->
+	<script src="js/main.js"></script>
+  
+  
+  
+ 
+  <!-- 
+  Timer reference.
+  
+  https://stackoverflow.com/questions/20618355/the-simplest-possible-javascript-countdown-timer 
+  
+  -->
+
+	</body>
+</html>

@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <title></title>
+    <meta charset='utf-8'>
+    <meta name='description' content=''>
+    <meta name='keywords' content=''>
+    <meta name='author' content=''>
+    <meta name='robots' content='all'>
+    <!-- <meta http-equiv='X-UA-Compatible' content='IE=edge'> -->
+    <link href='/favicon.png' rel='shortcut icon' type='image/png'>
+    
+      	<!-- Facebook and Twitter integration -->
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
+  
+  <style>
+  p{
+  color:white;
+  }
+  
+  h2{
+  color:white;
+  }
+  
+  </style> 
+	
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="css/animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="css/icomoon.css">
+	<!-- Themify Icons-->
+	<link rel="stylesheet" href="css/themify-icons.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="css/bootstrap.css">
+
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="css/magnific-popup.css">
+
+	<!-- Owl Carousel  -->
+	<link rel="stylesheet" href="css/owl.carousel.min.css">
+	<link rel="stylesheet" href="css/owl.theme.default.min.css">
+
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="css/style.css">
+
+	<!-- Modernizr JS -->
+	<script src="js/modernizr-2.6.2.min.js"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+    
+    
+    	<script type="text/javascript">
+		var totalsAsString = localStorage.getItem('totals');
+		var totals = JSON.parse(totalsAsString);
+		var totalScore = 0;
+    
+    
+		window.onload = function (){
+			document.getElementById("sec1ID").innerHTML = getVerScore(); 
+			document.getElementById("sec2ID").innerHTML = getPropScore();
+			document.getElementById("sec3ID").innerHTML = getVisScore();
+			document.getElementById("sec4ID").innerHTML = getPhilScore();
+			document.getElementById("sec5ID").innerHTML = getPolScore();
+			document.getElementById("sec6ID").innerHTML = getProcScore();
+			document.getElementById("sec7ID").innerHTML = getPerScore();
+			document.getElementById("sec8ID").innerHTML = getProgScore();
+			document.getElementById("sec9ID").innerHTML = getPplScore();
+			document.getElementById("sec10ID").innerHTML = getPAScore();
+			document.getElementById("sec11ID").innerHTML = getPromoScore();
+			document.getElementById("sec12ID").innerHTML = getFinalScore();
+		}
+		function getVerScore() {
+			if(totals[0][1] >= 16) {
+				return "Well done you are clearly being proactive in considering making your services more universal";
+			}
+			if(totals[0][1] >= 10 && totals[0][1] < 16) {
+				return "With a little more thought you will see more opportunities for increasing the universability of your services";
+			}
+			if(totals[0][1] >= 4 && totals[0][1] < 10) {
+				return "The face to fae training session will be a great opportunity for you to get guidance on progressing the universability of your organisation";
+			}
+		}
+		function getPropScore() {
+			if(totals[1][1] >= 20) {
+				return "You have a very high level of appreciation of the mutual benefits for all stakeholders in an inclusive organisation";
+			}
+			if(totals[1][1] >= 12 && totals[1][1] < 20) {
+				return "You have some sense of the benefits of a universal organisation ";
+			}
+			if(totals[1][1] >= 5 && totals[1][1] < 12) {
+				return "The face to face training session will be a great opportunity for you to gain some perspective of the benfits of universability to your organisation and its members";
+			}
+		}
+		function getVisScore() {
+			if(totals[2][1] >= 6) {
+				return "You can see an inclusive future for your organisation and its members, the challenge is now to ensure that your decisions and resource allocations make this happen";
+			}
+			if(totals[2][1] >= 2 && totals[2][1] < 6) {
+				return "The face to face session has great scope to convince you of the feasibility of promoting inclusion - just keep your mind open to the possibility";
+			}
+		}
+		function getPhilScore() {
+			if(totals[3][1] >= 30) {
+				return "Your organisation’s value system is an inclusive one. Your challenge will be to safeguard this and promote this philosophy within the wider fitness sector";
+			}
+			else if(totals[3][1] == 20) {
+				return "While there is some openness to equity in your organisation the commitment is not yet wholly embraced by all. Belief systems within the organisation may be confused and possibly conflicting. It would be desirable to promote dialogue amongst your stakeholders around the topic of inclusion";
+			}
+			else {
+				return "The face to face training session will only be of value to progressing your universability if you are willing to challenge your belief system about access to fitness services being a fundamental ";
+			}
+		}
+		function getPolScore() {
+			if(totals[4][1] >= 40) {
+				return "Your intentions are very sound in respect of inclusion and you have the potential to be a high achever in this respect";
+			}
+			else if(totals[4][1] >= 20 && totals[4][1] < 40) {
+				return "Your journey of making organisational policies inclusive has started well and this may be the catalyst for enhanced universability – if you are open to progressive change";
+			}
+			else if(totals[4][1] >= 10 && totals[4][1] < 20) {
+				return "Your policies are confused and possibly conflicting. Some guidance will be needed to bring greater coherency to your efforts to date";
+			}
+			else {
+				return "Universability is not something with which you have yet engaged, so the face to face training session will be an opportunity for significant learning in this respect";
+			}
+		}
+		function getProcScore() {
+			if(totals[5][1] >= 30) {
+				return "You are already a potential resource for people with disabilities in your community, as your networks are an essential element in the UFIT approach";
+			}
+			else if(totals[5][1] >= 10 && totals[5][1] < 20) {
+				return "You have made a positive start upon which your organisation can build sound relationships with people with disabilities. Unit three will offer you more ideas in respect of forging alliances with people with disabilities";
+			}
+			else {
+				return "You have great scope for learning during the face to face training session, once you have an open mind to the possibilities that an inclusive approach can offer";
+			}
+		}
+		function getPerScore() {
+			if(totals[6][1] >= 10) {
+				return "As a listening organisation you have important information that can guide your journey towards universability. Your challenge is to interpret what is being said and to translate it into inclusive actions";
+			}
+			else {
+				return "Your organisation has yet to learn the power of dialogue as a means of providing desirable fitness services to all members of the community";
+			}
+		}
+		function getProgScore() {
+			if(totals[7][1] >= 30) {
+				return "You have the potential to be a role model of provision in the fitness sector. Programming is the basic unit of service delivery – where this is inclusive, your relevance to the wider community is enhanced";
+			}
+			else if(totals[7][1] >= 10 && totals[7][1] < 30) {
+				return "You have made a positive start – you can use the questions here to reflect on how you can make more progress in this respect";
+			}
+			else {
+				return "You have great scope for learning during the face to face training session, once you have an open mind to the possibilities that an inclusive approach can offer";
+			}
+		}
+		function getPplScore() {
+			if(totals[8][1] >= 40) {
+				return "You have invested in your organisation’s most important asset. Your potential to offer inclusive services is vast. The challenge is to make sure that you optimally deploy this wisdom to make all aspects of your service provision truly inclusive";
+			}
+			else if(totals[8][1] >= 20 && totals[8][1] < 40) {
+				return "There is some scope within your organisation to promote universability principles and broaden your organisation’s relevance in the wider community ";
+			}
+			else if(totals[8][1] >= 10 && totals[8][1] < 20) {
+				return "Depending on the strength of influence of those with some perspective on inclusion, you may have scope to drive improvements from within. Consider the scope for repositioning those with training and knowledge in the area of inclusion to optimise their influence";
+			}
+			else {
+				return "Universability is not something with which you have engaged so the face to face training session will be an opportunity for significant learning in this respect";
+			}
+		}
+		function getPAScore() {
+			if(totals[9][1] >= 40) {
+				return "The facility is largely accessible and hence there is significant scope for promoting universability. ";
+			}
+			else if(totals[9][1] >= 20 && totals[9][1] < 40) {
+				return "While some aspects of your facility are accessible there is scope for enhancement. The face to face training session will offer you some suggestions for improvement here.";
+			}
+			else if(totals[9][1] >= 10 && totals[9][1] < 20) {
+				return "While you have made a start in the direction of universability there is considerable scope for improvements. ";
+			}
+			else {
+				return "The face to face training session will provide you with wonderful ideas for making small (and inexpensive) changes to enhance the universability of the facility.";
+			}
+		}
+		function getPromoScore() {
+			if(totals[10][1] == 20) {
+				return "You have the potential to be a role model of provision in the fitness sector. Programming is the basic unit of service delivery – where this is inclusive, your relevance to the wider community is enhanced";
+			}
+			else if(totals[10][1] == 10) {
+				return "You have made a positive start – you can use the questions here to reflect on how you can make more progress in this respect";
+			}
+			else {
+				return "You have great scope for learning during the face to face training session, once you have an open mind to the possibilities that an inclusive approach can offer";
+			}
+		}
+		function getFinalScore() {
+			for(var i = 0; i < totals.length; i++) {
+				totalScore += totals[i][1]; 
+			}
+			if(totalScore >= 340) {
+				return "Your organisation is evidently committed to inclusion.  Your perspective will be most valuable at the face to face training session as both an advocate and a guide for inclusive fitness service provision. You are highly relevant in your community and hence the organisation is sustainable and will remain so once your current commitment is supported and enhanced over time";
+			}
+			else if(totalScore >= 245 && totalScore <= 339){
+				return "Your organisation is making genuine and meaningful efforts in the direction of universability.  However provision is probably patchy and inconsistent, which may cause some confusion among members and potential members. Promotion of inclusive opportunities as an organisational priority has the potential to broaden your relevance to an even greater number of community members.";
+			}
+			else if(totalScore >= 150 && totalScore <= 224) {
+				return "While some work is being done to enhance inclusive provision, there is scope for significant gains in this aspect. Building on what you are doing well and embracing new ideas will see your organisation make the transitions to inclusivity with some ease. The face to face training session will be a unique opportunity to learn from others in your sector.";
+			}
+			else {
+				return "The face to face training session will be of immense value to your organisation. An exciting challenge awaits as you move towards universability. It will take some time but the secret is to keep doing what you are doing well and gradually add other initiatives to make your services more inclusive. The face to face training session will lead to significant learning for your organisation. ";
+			}
+		}
+	</script>
+    
+    
+    
+	<body>
+		
+	<div class="gtco-loader"></div>
+	
+	<div id="page">
+   
+	
+	<div class="page-inner">
+	<nav class="gtco-nav" role="navigation">
+		<div class="gtco-container">
+			
+			<div class="row">
+				<div class="col-sm-4 col-xs-12">
+					
+				</div>
+				
+			</div>
+			
+		</div>
+	</nav>	
+
+  
+		<div class="overlay"></div>
+		<div class="gtco-container">
+			<div class="row">
+				<div class="col-md-12 col-md-offset-0 text-left">		
+        			
+				    <div class="col-md-71 mt-text animate-box" data-animate-effect="fadeInUp">
+            
+            	<div >
+		<div id="content">
+			<h2>Verification</h2>
+			<p id="sec1ID"></p>
+			<h2>Value Propostion</h2>
+			<p id="sec2ID"></p>
+			<h2>Vision</h2>
+			<p id="sec3ID"></p>
+			<h2>Philosophy</h2>
+			<p id="sec4ID"></p>
+			<h2>Policy</h2>
+			<p id="sec5ID"></p>
+			<h2>Processes</h2>
+			<p id="sec6ID"></p>
+			<h2>Perception</h2>
+			<p id="sec7ID"></p>
+			<h2>Programmes</h2>
+			<p id="sec8ID"></p>
+			<h2>People</h2>
+			<p id="sec9ID"></p>
+			<h2>Physical Access/Place</h2>
+			<p id="sec10ID"></p>
+			<h2>Promotion</h2>
+			<p id="sec11ID"></p>
+
+			<h2>Total Score</h2>
+			<p id="sec12ID"></p>
+		</div>
+	</div>
+                 	           
+                                            </div>
+			                             </div>
+									</div>
+								</div>
+                </div>
+                </div>
+                </div>
+					
+
+
+
+	<div class="gototop js-top">
+		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
+	</div>
+	
+	<!-- jQuery -->
+	<script src="js/jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="js/jquery.easing.1.3.js"></script>
+	<!-- Bootstrap -->
+	<script src="js/bootstrap.min.js"></script>
+	<!-- Waypoints -->
+	<script src="js/jquery.waypoints.min.js"></script>
+	<!-- Carousel -->
+	<script src="js/owl.carousel.min.js"></script>
+	<!-- countTo -->
+	<script src="js/jquery.countTo.js"></script>
+	<!-- Magnific Popup -->
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/magnific-popup-options.js"></script>
+	<!-- Main -->
+	<script src="js/main.js"></script>
+  
+  
+  
+ 
+  <!-- 
+  Timer reference.
+  
+  https://stackoverflow.com/questions/20618355/the-simplest-possible-javascript-countdown-timer 
+  
+  -->
+
+	</body>
+
+</html>
